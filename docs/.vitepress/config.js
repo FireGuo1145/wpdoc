@@ -20,7 +20,7 @@ export default {
           ]
         }
       ]
-    }
+    },
     title: '风梨团队文档',
     lastUpdated: true,
     description: '风梨团队',
