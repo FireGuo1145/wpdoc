@@ -11,9 +11,9 @@ hero:
     - theme: brand
       text: 加入我们
       link: #
-     - theme: alt
-       text: View Us on GitHub
-       link: https://github.com/WindyPear-Team
+    - theme: alt
+      text: View Us on GitHub
+      link: https://github.com/WindyPear-Team
 ---
 <script>
 export default {
