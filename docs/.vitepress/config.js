@@ -2,6 +2,37 @@ export default {
     head: [
         ['link', { rel: 'icon', href: '/logo2.png' }],
     ],
+    sidebar: {
+      // 当用户位于 `guide` 目录时，会显示此侧边栏
+      '/bot/': [
+        {
+          text: 'bot文档',
+          items: [
+            { text: '概览', link: '/bot/' },
+            { text: 'B站解析', link: '/bot/bili' },
+            { text: '娶群友', link: '/bot/waifu' },
+            { text: 'MC查询', link: '/bot/mc' },
+            { text: '音乐下载', link: '/bot/mudl' },
+            { text: '积分系统', link: '/bot/credit' },
+            { text: 'AI聊天', link: '/bot/ai' },
+            { text: '娱乐功能', link: '/bot/games' },
+            { text: '游戏查询', link: '/bot/gameinfo' }
+          ]
+        }
+      ],
+
+      // 当用户位于 `config` 目录时，会显示此侧边栏
+      '/config/': [
+        {
+          text: 'Config',
+          items: [
+            { text: 'Index', link: '/config/' },
+            { text: 'Three', link: '/config/three' },
+            { text: 'Four', link: '/config/four' }
+          ]
+        }
+      ]
+    }
     title: '风梨团队文档',
     lastUpdated: true,
     description: '风梨团队',
