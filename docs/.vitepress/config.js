@@ -19,18 +19,6 @@ export default {
             { text: '游戏查询', link: '/bot/gameinfo' }
           ]
         }
-      ],
-
-      // 当用户位于 `config` 目录时，会显示此侧边栏
-      '/config/': [
-        {
-          text: 'Config',
-          items: [
-            { text: 'Index', link: '/config/' },
-            { text: 'Three', link: '/config/three' },
-            { text: 'Four', link: '/config/four' }
-          ]
-        }
       ]
     }
     title: '风梨团队文档',
