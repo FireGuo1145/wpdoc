@@ -5,12 +5,12 @@ hero:
   name: 风梨团队
   tagline: 始终致力于为良好开源生态而努力
   image:
-    src: //api.flweb.cn/logos/logo.webp
+    src: https://api.flweb.cn/logos/logo.webp
     alt: MCJPG组织
   actions:
     - theme: brand
       text: 加入我们
-      link: #
+      link: javascript:void(0)
     - theme: alt
       text: View Us on GitHub
       link: https://github.com/WindyPear-Team
