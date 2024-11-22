@@ -53,7 +53,7 @@ export default {
       provider: 'algolia',
       options: {
         appId: 'S2N2PBL1WC',
-        apiKey: 'c503b398ea681860b5306a9c291f6bc7',
+        apiKey: 'e6eb73d9659332b378c3749493c78d4f',
         indexName: 'wpdoc'
       }
         },
