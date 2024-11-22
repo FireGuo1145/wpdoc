@@ -50,23 +50,12 @@ export default {
         },
         lastUpdatedText: "最近更新时间",
         search: {
-            provider: "local",
-            options: {
-              translations: {
-                button: {
-                  buttonText: "搜索文章",
-                  buttonAriaLabel: "搜索文章",
-                },
-                modal: {
-                  noResultsText: "无法找到相关结果",
-                  resetButtonTitle: "清除查询条件",
-                  footer: {
-                    selectText: "选择",
-                    navigateText: "切换",
-                  },
-                },
-              },
-            },
+      provider: 'algolia',
+      options: {
+        appId: 'S2N2PBL1WC',
+        apiKey: 'e6eb73d9659332b378c3749493c78d4f',
+        indexName: 'wpdoc'
+      }
         },
     },
 };
