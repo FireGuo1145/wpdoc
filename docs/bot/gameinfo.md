@@ -8,3 +8,5 @@
 
 ![gs帮助](https://api.flweb.cn/doc/image/gs.jpeg)
 
+注：这里的菜单可能更新不及时，请以实际为准。
+
