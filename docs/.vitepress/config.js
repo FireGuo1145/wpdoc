@@ -23,7 +23,6 @@ export default {
             }
         ],
         sidebar: {
-            // 当用户位于 `bot` 目录时，会显示此侧边栏
             '/bot/': [
                 {
                     text: 'bot文档',
@@ -37,6 +36,15 @@ export default {
                         { text: 'AI聊天', link: '/bot/ai' },
                         { text: '娱乐功能', link: '/bot/games' },
                         { text: '游戏查询', link: '/bot/gameinfo' }
+                    ]
+                }
+            ],
+            '/fluentbbs/': [
+                {
+                    text: 'FluentBBS',
+                    items: [
+                        { text: '概览', link: '/fluentbbs/' },
+                        { text: '安装', link: '/fluentbbs/install' }
                     ]
                 }
             ]
