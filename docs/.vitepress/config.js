@@ -13,7 +13,11 @@ export default {
         nav: [
             { text: "主页", link: "/" },
             { text: "bot文档", link: "/bot/" },
-            { text: "组织开源项目", link: "/osp/" },
+            { text: "组织开源项目", 
+              items: [
+                { text: "FluentBBS", link: "/fluentbbs/" }
+              ]
+            },
             { text: "风梨网", link: "https://www.flweb.cn/" },
             {
               text: "友情链接",
