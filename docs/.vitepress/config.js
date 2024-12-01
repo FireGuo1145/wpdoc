@@ -62,12 +62,7 @@ export default {
         },
         lastUpdatedText: "最近更新时间",
         search: {
-      provider: 'algolia',
-      options: {
-        appId: 'S2N2PBL1WC',
-        apiKey: 'e6eb73d9659332b378c3749493c78d4f',
-        indexName: 'wpdoc'
-      }
-        },
+      provider: 'local'
+    }
     },
 };
