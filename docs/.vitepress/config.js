@@ -15,10 +15,10 @@ export default {
             { text: "bot文档", link: "/bot/" },
             { text: "组织开源项目", 
               items: [
-                { text: "FluentBBS", link: "/fluentbbs/" }
+                { text: "FluentBBS", link: "/fluentbbs/" },
+                { text: "PAPM", link: "/papm/" }
               ]
             },
-            { text: "风梨网", link: "https://www.flweb.cn/" },
             {
               text: "友情链接",
               items: [
@@ -49,6 +49,15 @@ export default {
                     items: [
                         { text: '概览', link: '/fluentbbs/' },
                         { text: '安装', link: '/fluentbbs/install' }
+                    ]
+                }
+            ],
+            '/papm/': [
+                {
+                    text: 'PAPM',
+                    items: [
+                        { text: '概览', link: '/papm/' },
+                        { text: '基础指令', link: '/papm/command' }
                     ]
                 }
             ]
