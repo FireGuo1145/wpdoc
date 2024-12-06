@@ -155,7 +155,7 @@ return array (
 
 ### **使用方法**
 ```php
-$module = importmod('example/util', ['arg1', 'arg2']);
+$module = importmod('windypear/phpwebserver', ['arg1', 'arg2']);
 $module->someMethod();
 ```
 
@@ -167,8 +167,8 @@ project/
   package.php
   php_module/
     init.php
-    example/
-      util/
+    windypear/
+      phpwebserver/
         init.php
   vendor/
 ```
