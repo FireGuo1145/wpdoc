@@ -103,16 +103,16 @@ papm build
 
 ### **9. 查看和修改Registry**
 ```bash
-papm registry [set|get] [url]
+papm config [set|get] registry [url]
 ```
 **描述**:
-- `papm registry get`: 查看当前Registry地址。
-- `papm registry set [url]`: 设置新的Registry地址。
+- `papm config get registry`: 查看当前Registry地址。
+- `papm config set registry [url]`: 设置新的Registry地址。
 
 **示例**:
 ```bash
-papm registry get
-papm registry set https://registry-papm.flweb.cn
+papm config get registry
+papm config set registry https://registry-papm.flweb.cn
 ```
 
 ---
