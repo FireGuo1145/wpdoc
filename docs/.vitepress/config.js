@@ -32,6 +32,7 @@ export default {
     },
         sidebarMenuLabel: '菜单',
         returnToTopLabel: '返回顶部',
+        darkModeSwitchLabel: '切换主题',
         sidebar: {
             '/bot/': [
                 {
