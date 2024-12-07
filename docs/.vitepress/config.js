@@ -78,6 +78,7 @@ export default {
             copyright: 'Copyright © 2018-2024 <a href="https://www.flweb.cn/">WindyPear-Team</a> 版权所有'
         },
         lastUpdatedText: "最近更新时间",
+        search: {
         provider: 'local',
       options: {
         locales: {
@@ -99,6 +100,7 @@ export default {
           }
         }
       }
+     }
     },
 sitemap: {
     hostname: 'https://doc.flweb.cn'
