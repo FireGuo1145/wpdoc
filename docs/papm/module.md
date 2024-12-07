@@ -194,7 +194,3 @@ papm -m <commandName> [args...]
 ```bash
 papm init [package] [version]
 ```
-
----
-
-如需进一步补充或调整，请随时提出！
