@@ -75,4 +75,7 @@ export default {
       provider: 'local'
     }
     },
+sitemap: {
+    hostname: 'https://example.com'
+  }
 };
