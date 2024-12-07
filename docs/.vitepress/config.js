@@ -29,7 +29,9 @@ export default {
         docFooter: {
       prev: '上一页',
       next: '下一页'
-    }
+    },
+        sidebarMenuLabel: '菜单',
+        returnToTopLabel: '返回顶部',
         sidebar: {
             '/bot/': [
                 {
