@@ -57,7 +57,8 @@ export default {
                     text: 'PAPM',
                     items: [
                         { text: '概览', link: '/papm/' },
-                        { text: '基础指令', link: '/papm/command' }
+                        { text: '基础指令', link: '/papm/command' },
+                        { text: '模块结构', link: '/papm/module' }
                     ]
                 }
             ]
