@@ -76,6 +76,6 @@ export default {
     }
     },
 sitemap: {
-    hostname: 'https://example.com'
+    hostname: 'https://doc.flweb.cn'
   }
 };
