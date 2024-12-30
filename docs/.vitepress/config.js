@@ -59,6 +59,15 @@ export default {
                     ]
                 }
             ],
+            '/koi/': [
+                {
+                    text: 'Koishi 插件',
+                    items: [
+                        { text: 'casdoor适配器', link: '/koi/casdoor' },
+                        { text: 'muteme', link: '/koi/muteme' }
+                    ]
+                }
+            ],
             '/papm/': [
                 {
                     text: 'PAPM',
