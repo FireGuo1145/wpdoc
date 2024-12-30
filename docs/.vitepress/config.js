@@ -16,7 +16,8 @@ export default {
             { text: "组织开源项目", 
               items: [
                 { text: "FluentBBS", link: "/fluentbbs/" },
-                { text: "PAPM", link: "/papm/" }
+                { text: "PAPM", link: "/papm/" },
+                { text: "Koishi插件", link: "/koi/" }
               ]
             },
             {
