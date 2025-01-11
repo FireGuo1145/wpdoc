@@ -2,9 +2,21 @@
 
 风梨小助手是由成员FireGuo主要维护和开发的多功能小助手，采用ts+js的高性能koishi框架。
 
-注：为了提示官方BOT的体验，大部分指令改为中文调用啦！（原指令同样生效）
+注：为了提升官方BOT的体验，大部分指令改为中文调用啦！（原指令同样生效）
 
-功能概览：
+## 拉她入群
+
+### 野生Bot
+
+>这个倒是不能随便放...懂的都懂！
+
+### 官方Bot
+
+[点击邀请入群](https://qun.qq.com/qqweb/qunpro/jump?id=qun-robot-share&robot_appid=102095560&robot_uin=3889013396)
+
+[点击邀请入频道](https://qun.qq.com/qqweb/qunpro/jump?id=robot-share&robot_appid=102095560)
+
+## 指令概览
 
 当前可用的群互动功能：
 
