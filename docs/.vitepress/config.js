@@ -37,7 +37,7 @@ export default {
         sidebar: {
             '/bot/': [
                 {
-                    text: 'bot文档',
+                    text: '绮宫梦莉Bot文档',
                     items: [
                         { text: '概览', link: '/bot/' },
                         { text: 'B站解析', link: '/bot/bili' },
