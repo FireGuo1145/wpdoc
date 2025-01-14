@@ -10,7 +10,7 @@ hero:
   actions:
     - theme: brand
       text: 加入我们
-      link: javascript:void(0)
+      link: https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=djBfZaOL48fytzDyifpU9pcNeRBqrYlN&authKey=NUyh%2BZclnM9q7t9da7qKpYw%2FNwSaNiU2oxg0WnoZS7AV70BOF%2BMYC41VFrYzp74E&noverify=0&group_code=475823621
     - theme: alt
       text: View Us on GitHub
       link: https://github.com/WindyPear-Team
