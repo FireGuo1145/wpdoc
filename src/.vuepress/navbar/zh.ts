@@ -7,6 +7,7 @@ export const zhNavbar = navbar([
   },
   {
     text: "bot文档",
+    icon: "robot",
     link: "/bot/",
   },
   {
