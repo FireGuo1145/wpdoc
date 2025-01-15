@@ -46,6 +46,8 @@
 
   /娶群友  娶群友
 
+  /强娶  强娶群友<Badge text="野" type="tip" />
+
   /离婚  离婚
 
   /muteme  让她禁言你<Badge text="野" type="tip" />
@@ -54,9 +56,9 @@
 
 当前可用的工具：
 
-  /菜单    打开按钮菜单<Badge text="官" type="tip" />
+  /菜单  打开按钮菜单<Badge text="官" type="tip" />
 
-  /天气    查询三天内的天气<Badge text="官" type="tip" />
+  /天气  查询三天内的天气<Badge text="官" type="tip" />
 
   /一言  随机一言
 
@@ -78,15 +80,17 @@
 
 当前可用的娱乐功能：
 
+  /赞我  让机器人给你点名片赞<Badge text="野" type="tip" />
+
   /21点  21点游戏
 
-  /恶魔轮盘    恶魔轮盘游戏<Badge text="官" type="tip" />
+  /恶魔轮盘  恶魔轮盘游戏<Badge text="官" type="tip" />
 
-  /投胎    投胎模拟器<Badge text="官" type="tip" />
+  /投胎  投胎模拟器<Badge text="官" type="tip" />
 
-  /修仙系统    修仙游戏菜单
+  /修仙系统  修仙游戏菜单
 
-  /2048    2048游戏<Badge text="官" type="tip" />
+  /2048  2048游戏<Badge text="官" type="tip" />
 
   /chat  AI聊天（15积分）
 
