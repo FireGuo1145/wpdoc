@@ -17,7 +17,7 @@
 <VPCard
   title="绮宫梦莉"
   desc="点击邀请到群聊"
-  logo="https://api.fleb.cn/doc/image/bot.jpg"
+  logo="https://api.flweb.cn/doc/image/bot.jpg"
   link="https://qun.qq.com/qqweb/qunpro/jump?id=qun-robot-share&robot_appid=102095560&robot_uin=3889013396"
   background="rgba(253, 230, 138, 0.15)"
 />
@@ -25,7 +25,7 @@
 <VPCard
   title="绮宫梦莉"
   desc="点击邀请到频道"
-  logo="https://api.fleb.cn/doc/image/bot.jpg"
+  logo="https://api.flweb.cn/doc/image/bot.jpg"
   link="https://qun.qq.com/qqweb/qunpro/jump?id=robot-share&robot_appid=102095560"
   background="rgba(253, 230, 138, 0.15)"
 />
