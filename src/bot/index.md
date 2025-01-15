@@ -14,9 +14,21 @@
 
 ### 官方Bot
 
-[点击邀请入群](https://qun.qq.com/qqweb/qunpro/jump?id=qun-robot-share&robot_appid=102095560&robot_uin=3889013396)
+<VPCard
+  title="绮宫梦莉"
+  desc="点击邀请到群聊"
+  logo="https://api.fleb.cn/doc/image/bot.jpg"
+  link="https://qun.qq.com/qqweb/qunpro/jump?id=qun-robot-share&robot_appid=102095560&robot_uin=3889013396"
+  background="rgba(253, 230, 138, 0.15)"
+/>
 
-[点击邀请入频道](https://qun.qq.com/qqweb/qunpro/jump?id=robot-share&robot_appid=102095560)
+<VPCard
+  title="绮宫梦莉"
+  desc="点击邀请到频道"
+  logo="https://api.fleb.cn/doc/image/bot.jpg"
+  link="https://qun.qq.com/qqweb/qunpro/jump?id=robot-share&robot_appid=102095560"
+  background="rgba(253, 230, 138, 0.15)"
+/>
 
 ## 指令概览
 
