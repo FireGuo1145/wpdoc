@@ -1,10 +1,14 @@
 import { defineUserConfig } from "vuepress";
+import { webpackBundler } from "@vuepress/bundler-webpack";
 
 import theme from "./theme.js";
 
 export default defineUserConfig({
   base: "/",
-
+  bundler: webpackBundler({
+    postcss: {},
+    vue: {},
+  }),
   locales: {
     "/": {
       lang: "zh-CN",
