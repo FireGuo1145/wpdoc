@@ -1,13 +1,13 @@
 import { defineUserConfig } from "vuepress";
-import { webpackBundler } from "@vuepress/bundler-webpack";
+import { viteBundler } from '@vuepress/bundler-vite'
 
 import theme from "./theme.js";
 
 export default defineUserConfig({
   base: "/",
-  bundler: webpackBundler({
-    postcss: {},
-    vue: {},
+  bundler: viteBundler({
+    viteOptions: {},
+    vuePluginOptions: {},
   }),
   locales: {
     "/": {
