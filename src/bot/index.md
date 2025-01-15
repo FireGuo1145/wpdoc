@@ -80,13 +80,13 @@
 
   /21点  21点游戏
 
-    /恶魔轮盘    恶魔轮盘游戏<Badge text="官" type="tip" />
+  /恶魔轮盘    恶魔轮盘游戏<Badge text="官" type="tip" />
 
-    /投胎    投胎模拟器<Badge text="官" type="tip" />
+  /投胎    投胎模拟器<Badge text="官" type="tip" />
 
-    /修仙系统    修仙游戏菜单
+  /修仙系统    修仙游戏菜单
 
-    /2048    2048游戏<Badge text="官" type="tip" />
+  /2048    2048游戏<Badge text="官" type="tip" />
 
   /chat  AI聊天（15积分）
 
