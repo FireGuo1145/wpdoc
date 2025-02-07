@@ -13,7 +13,7 @@ export default hopeTheme({
 
   logo: "https://api.flweb.cn/logos/logo.webp",
 
-  repo: "WindyPear-Team/wpdoc",
+  repo: "FireGuo1145/wpdoc",
 
   docsDir: "src",
 
