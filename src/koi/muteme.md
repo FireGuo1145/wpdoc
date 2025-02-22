@@ -29,9 +29,7 @@ mutehim禁言提示信息有两个变量，{time}是禁言时间，{name}是被�
 很简单，指令muteme是禁言自己，指令mutehim是禁言随机成员。例如，指令前缀是斜线，就使用以下方式：
 
 ```
-
 /muteme
-
 /mutehim
 
 ```
