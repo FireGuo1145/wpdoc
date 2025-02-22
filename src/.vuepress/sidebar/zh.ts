@@ -36,6 +36,7 @@ export const zhSidebar = sidebar({
         "/koi/muteme",
         "/koi/tdz",
         "/koi/menuextend",
+        "/koi/autocheck",
       ],
     },
   ],
