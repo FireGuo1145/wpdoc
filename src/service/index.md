@@ -30,5 +30,4 @@ Casdoor账号鉴权系统  +50r
 
 包后续维护升级
 
-定制插件请闲鱼联系：https://m.tb.cn/h.THmzoIU?tk=FkFNejge5aq CZ321
-
+定制插件请闲鱼联系：https://m.tb.cn/h.THmzoIU
