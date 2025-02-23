@@ -31,3 +31,13 @@ Casdoor账号鉴权系统  +50r
 包后续维护升级
 
 定制插件请闲鱼联系：https://m.tb.cn/h.THmzoIU
+
+## Cloudflare Tunnel 隧道部署
+
+基础价  20r
+
+----
+
+代配置账号和域名  +5r
+
+nginx配合配置  +10r
