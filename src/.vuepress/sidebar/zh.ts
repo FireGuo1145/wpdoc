@@ -39,6 +39,7 @@ export const zhSidebar = sidebar({
         "/koi/autocheck",
         "/koi/rcon",
         "/koi/gsuid-adapter",
+        "/koi/calculator",
       ],
     },
   ],
