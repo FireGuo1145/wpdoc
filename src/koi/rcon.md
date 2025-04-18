@@ -41,3 +41,13 @@ server1 kick FireGuo
 咳咳，言归正传，接在指令后面的参数会原封不动地输回服务器。
 
 总之就是非常好用！
+
+---
+
+## 衍生插件
+
+[![npm](https://img.shields.io/npm/v/koishi-plugin-multi-rcon-hll?style=flat-square)](https://www.npmjs.com/package/koishi-plugin-multi-rcon-hll)
+
+也是应客户要求，当然也是因为rcon格式的差异，做了个衍生插件multi-rcon-hll，用于方便地管理人间地狱服务器。
+
+目前这个插件相对于原插件多了给予VIP、查询战绩等功能，可以自行安装测试。
