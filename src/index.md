@@ -16,7 +16,7 @@ actions:
 
 features:
   - title: Yumeri
-    icon: robot
+    icon: coin
     details: 基于NodeJS的新一代模块化Web应用框架
     link: //yumeri.flweb.cn
 
@@ -31,7 +31,7 @@ features:
     link: /papm/
 
   - title: Koishi插件
-    icon: plugin
+    icon: raphael:plugin
     details: 功能独特而强大的插件
     link: /koi/
 
