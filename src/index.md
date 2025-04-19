@@ -15,6 +15,11 @@ actions:
     link: https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=djBfZaOL48fytzDyifpU9pcNeRBqrYlN&authKey=NUyh%2BZclnM9q7t9da7qKpYw%2FNwSaNiU2oxg0WnoZS7AV70BOF%2BMYC41VFrYzp74E&noverify=0&group_code=475823621
 
 features:
+  - title: Yumeri
+    icon: robot
+    details: 基于NodeJS的新一代模块化Web应用框架
+    link: //yumeri.flweb.cn
+
   - title: 绮宫梦莉
     icon: robot
     details: 高性能的QQ/Kook机器人！
@@ -27,7 +32,7 @@ features:
 
   - title: Koishi插件
     icon: plugin
-    details: 功能简单而独特的插件
+    details: 功能独特而强大的插件
     link: /koi/
 
 
