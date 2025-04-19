@@ -6,8 +6,8 @@ export const zhNavbar = navbar([
     link: "/",
   },
   {
-    text: "服务",
-    link: "/service/",
+    text: "Yumerijs",
+    link: "//yumeri.flweb.cn",
   },
   {
     text: "bot文档",
