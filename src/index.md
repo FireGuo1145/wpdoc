@@ -16,7 +16,7 @@ actions:
 
 features:
   - title: Yumeri
-    icon: coin
+    icon: tabler:coin
     details: 基于NodeJS的新一代模块化Web应用框架
     link: //yumeri.flweb.cn
 
