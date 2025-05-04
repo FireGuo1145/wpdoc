@@ -41,6 +41,7 @@ export const zhSidebar = sidebar({
         "/koi/gsuid-adapter",
         "/koi/calculator",
         "/koi/giftcard",
+        "/koi/mctool",
       ],
     },
   ],
