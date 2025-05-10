@@ -42,6 +42,7 @@ export const zhSidebar = sidebar({
         "/koi/calculator",
         "/koi/giftcard",
         "/koi/mctool",
+        "/koi/adaper-mc",
       ],
     },
   ],
