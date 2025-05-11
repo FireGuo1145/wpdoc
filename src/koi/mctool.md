@@ -4,6 +4,8 @@
 
 [![npm](https://img.shields.io/npm/v/koishi-plugin-mctool?style=flat-square)](https://www.npmjs.com/package/koishi-plugin-mctool)
 
+开源地址：[https://github.com/MineJPGcraft/koishi-plugin-mctool](https://github.com/MineJPGcraft/koishi-plugin-mctool)
+
 ---
 
 ## 使用
@@ -32,8 +34,14 @@ https://github.com/MineJPGcraft/Minecraft-Webhook
 
 ### 登录提示
 
-为防止盗号情况的发生，用户加入服务器后会默认向玩家绑定的QQ号发送登录信息，并提示如果非本人操作请及时冻结账号。
+为防止盗号情况的发生，用户加入服务器后会默认向玩家绑定的QQ号发送登录信息，并提示如果非本人操作请及时冻结账号。可在插件配置中关闭此功能。
 
 ### 玩家数
 
 /mc.list 查看当前玩家个数和最大玩家数
+
+### 同步聊天
+
+（Webhook插件需更新至1.1.0或更新）
+
+在配置项中打开聊天同步功能，即可在服务器和QQ群中同步聊天消息。可在“本地化”中自定义发给QQ群的聊天消息格式。
