@@ -7,7 +7,7 @@ export const zhNavbar = navbar([
   },
   {
     text: "Yumerijs",
-    link: "//yumeri.flweb.cn",
+    link: "//yumeri.dev",
   },
   {
     text: "bot文档",
