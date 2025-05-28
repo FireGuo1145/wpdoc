@@ -18,7 +18,7 @@ features:
   - title: Yumeri
     icon: tabler:coin
     details: 基于NodeJS的新一代模块化Web应用框架
-    link: //yumeri.flweb.cn
+    link: //yumeri.dev
 
   - title: 绮宫梦莉
     icon: robot
