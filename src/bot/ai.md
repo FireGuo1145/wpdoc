@@ -1,5 +1,7 @@
 # AI聊天功能
 
+注：由于内容审查等原因，AI聊天已关闭
+
 效果图
 
 ![AI](https://api.flweb.cn/doc/image/ai.jpg)
