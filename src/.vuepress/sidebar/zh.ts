@@ -13,6 +13,7 @@ export const zhSidebar = sidebar({
         "/bot/credit",
         "/bot/games",
         "/bot/gameinfo",
+        "/bot/interaction",
       ],
     },
   ],
