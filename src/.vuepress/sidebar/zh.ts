@@ -7,6 +7,7 @@ export const zhSidebar = sidebar({
       icon: "robot",
       children: [
         "/bot/",
+        "/bot/manage",
         "/bot/bili",
         "/bot/waifu",
         "/bot/mc",
