@@ -1,6 +1,19 @@
 import { sidebar } from "vuepress-theme-hope";
 
 export const zhSidebar = sidebar({
+  "/oidc/": [
+    {
+      text: "风梨通行证 OIDC",
+      icon: "key",
+      children: [
+        "/oidc/",
+        "/oidc/register",
+        "/oidc/web",
+        "/oidc/mobile",
+        "/oidc/api",
+      ],
+    },
+  ],
   "/bot/": [
     {
       text: "绮宫梦莉Bot文档",

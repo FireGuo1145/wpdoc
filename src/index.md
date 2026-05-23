@@ -15,6 +15,11 @@ actions:
     link: https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=djBfZaOL48fytzDyifpU9pcNeRBqrYlN&authKey=NUyh%2BZclnM9q7t9da7qKpYw%2FNwSaNiU2oxg0WnoZS7AV70BOF%2BMYC41VFrYzp74E&noverify=0&group_code=475823621
 
 features:
+  - title: 通行证 OIDC
+    icon: key
+    details: 风梨通行证 OpenID Connect 接入指南，含 Web/移动端
+    link: /oidc/
+
   - title: Yumeri
     icon: tabler:coin
     details: 基于NodeJS的新一代模块化Web应用框架

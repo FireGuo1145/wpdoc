@@ -10,6 +10,11 @@ export const zhNavbar = navbar([
     link: "//yumeri.dev",
   },
   {
+    text: "通行证 OIDC",
+    icon: "key",
+    link: "/oidc/",
+  },
+  {
     text: "bot文档",
     icon: "robot",
     link: "/bot/",
