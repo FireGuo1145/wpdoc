@@ -15,7 +15,6 @@ order: 1
 |------|------|------|
 | 通行证主站 | <https://account.flweb.cn> | 用户登录、个人资料管理、Issuer |
 | 开发者中心 | <https://connect.flweb.cn> | 注册账号、创建/管理应用、查看 client_id/secret |
-| 社区 API | <https://com-api.flweb.cn> | 社区相关接口（圈子 / 帖子 / 消息）|
 | 社区移动端 | 风梨社区 App | 同时提供移动端的 Broker 授权 |
 
 OIDC Issuer 为 `https://account.flweb.cn`，对应的元数据可在 <https://account.flweb.cn/.well-known/openid-configuration> 自助发现。
