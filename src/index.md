@@ -30,11 +30,6 @@ features:
     details: 高性能的QQ/Kook机器人！
     link: /bot/
 
-  - title: PAPM
-    icon: code
-    details: 高仿npm的PHP包管理器
-    link: /papm/
-
   - title: Koishi插件
     icon: raphael:plugin
     details: 功能独特而强大的插件

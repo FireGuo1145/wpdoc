@@ -61,15 +61,4 @@ export const zhSidebar = sidebar({
       ],
     },
   ],
-  "/papm/": [
-    {
-      text: "PAPM",
-      icon: "code",
-      children: [
-        "/papm/",
-        "/papm/command",
-        "/papm/module",
-      ],
-    },
-  ],
 });

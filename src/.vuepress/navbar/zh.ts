@@ -28,10 +28,6 @@ export const zhNavbar = navbar([
         link: "/fluentbbs/",
       },
       {
-        text: "PAPM",
-        link: "/papm/",
-      },
-      {
         text: "Koishi插件",
         link: "/koi/",
       },
