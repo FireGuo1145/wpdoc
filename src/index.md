@@ -1,9 +1,9 @@
 ---
 home: true
-title: 风梨团队文档
+title: 风梨科技产品文档
 icon: home
 heroImage: https://api.flweb.cn/logos/logo.webp
-heroText: 风梨团队
+heroText: 风梨科技
 tagline: 始终致力于为良好开源生态而努力
 actions:
   - text: View Us on Github
@@ -37,7 +37,7 @@ features:
 
 
 copyright: false
-footer: 风梨团队倾心打造 | Copyright © 2018-2025 WindyPear-Team
+footer: 风梨科技倾心打造 | Copyright © 2018-2026 WindyPear-Team
 ---
 
 <!-- markdownlint-disable -->
