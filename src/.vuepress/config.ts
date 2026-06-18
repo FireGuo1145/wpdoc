@@ -12,13 +12,13 @@ export default defineUserConfig({
   locales: {
     "/": {
       lang: "zh-CN",
-      title: "风梨团队文档",
-      description: "风梨团队的项目文档",
+      title: "风梨科技产品文档",
+      description: "风梨科技的产品文档",
     },
     "/en/": {
       lang: "en-US",
-      title: "WindyPear-Team Documents",
-      description: "The Documents for projects of WindyPear Team",
+      title: "WindyPear-Tech Documents",
+      description: "The Documents for projects of WindyPear Tech",
     },
   },
 
