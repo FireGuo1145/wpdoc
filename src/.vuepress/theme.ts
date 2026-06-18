@@ -8,7 +8,7 @@ export default hopeTheme({
 
   author: {
     name: "WindyPear-Team",
-    url: "https://www.flweb.cn",
+    url: "https://windypear.com",
   },
 
   logo: "https://api.flweb.cn/logos/logo.webp",
@@ -44,7 +44,7 @@ export default hopeTheme({
       // sidebar
       sidebar: zhSidebar,
 
-      footer: "WindyPear-Team 风梨团队",
+      footer: "WindyPear-Tech 风梨科技",
 
       displayFooter: true,
 
