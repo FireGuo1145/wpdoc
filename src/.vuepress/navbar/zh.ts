@@ -20,12 +20,12 @@ export const zhNavbar = navbar([
     link: "/bot/",
   },
   {
-    text: "组织开源项目",
+    text: "团队开源项目",
     icon: "folder",
     children: [
       {
-        text: "FluentBBS",
-        link: "/fluentbbs/",
+        text: "Craft SDK",
+        link: "/craft/",
       },
       {
         text: "Koishi插件",

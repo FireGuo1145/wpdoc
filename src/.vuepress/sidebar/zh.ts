@@ -61,4 +61,22 @@ export const zhSidebar = sidebar({
       ],
     },
   ],
+  "/craft/": [
+    {
+      text: "Craft SDK",
+      icon: "code",
+      children: [
+        "/craft/",
+        "/craft/getting-started",
+        "/craft/craft-sdk",
+        "/craft/auth-manager",
+        "/craft/downloader",
+        "/craft/game-launcher",
+        "/craft/installer",
+        "/craft/loaders",
+        "/craft/models",
+        "/craft/testing",
+      ],
+    },
+  ],
 });
