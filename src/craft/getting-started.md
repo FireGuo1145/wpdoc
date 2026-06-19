@@ -3,13 +3,16 @@
 ## 安装依赖
 
 ```bash
-yarn install
+# 安装 Craft SDK
+yarn add @hirarijs/craft-sdk
+# 或使用 npm
+npm install @hirarijs/craft-sdk
 ```
 
 ## 启动原版
 
 ```ts
-import { CraftSDK, API_SOURCE } from "./src/index.js";
+import { CraftSDK, API_SOURCE } from "@hirarijs/craft-sdk";
 
 const sdk = new CraftSDK({
   apiSource: API_SOURCE.MOJANG,

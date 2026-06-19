@@ -16,7 +16,7 @@ Craft SDK 是一个 Node.js/TypeScript Minecraft 启动器 SDK，提供版本准
 
 ## 模块入口
 
-从 `src/index.ts` 导出的公开 API：
+包入口导出的公开 API：
 
 ```ts
 export { CraftSDK, type CraftSdkOptions, type PlayGameOptions } from "./sdk.js";
