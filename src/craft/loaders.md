@@ -17,6 +17,10 @@ interface InstallLoaderOptions extends PrepareVersionOptions {
   baseDirectory: string;
   loaderVersion?: string;
   javaPath?: string;
+  versionDirectory?: string;
+  loaderVersionDirectory?: string;
+  assetsDirectory?: string;
+  librariesDirectory?: string;
 }
 ```
 
@@ -25,6 +29,10 @@ interface InstallLoaderOptions extends PrepareVersionOptions {
 - `baseDirectory`: 游戏目录，例如 `.minecraft`。
 - `loaderVersion`: 可选。未传时尝试解析最新版本。
 - `javaPath`: Forge installer 需要 Java，可显式传入。
+- `versionDirectory`: 自定义原版/基础版本目录。
+- `loaderVersionDirectory`: 自定义 loader profile 目录。
+- `assetsDirectory`: 自定义 assets 目录。
+- `librariesDirectory`: 自定义 libraries 目录。
 - `validate`: 继承自 `PrepareVersionOptions`，默认启用。
 
 ## Fabric
@@ -51,6 +59,8 @@ await sdk.installer.installLoader({
 ```
 
 安装结果会在 `versions/` 下生成 Fabric profile 版本目录，并下载 Fabric loader 依赖库。
+
+可通过 `loaderVersionDirectory` 指定 Fabric/Quilt/Forge profile 的实际存储目录；`versionDirectory` 则用于原版基础版本。`assetsDirectory` 和 `librariesDirectory` 可用于隔离资源与依赖库。
 
 ## Quilt
 
@@ -100,10 +110,23 @@ Forge 安装流程：
 使用高级入口：
 
 ```ts
-await sdk.playGame({
+const installed = await sdk.installGame({
   version: "1.20.1",
   gameDirectory: ".minecraft",
+  runtimeDirectory: ".isolated/runtime/fabric",
   loader: "fabric",
+  assetsDirectory: ".isolated/assets",
+  librariesDirectory: ".isolated/libraries",
+});
+
+await sdk.launchGame({
+  metadata: installed.metadata,
+  gameDirectory: installed.gameDirectory,
+  assetsDirectory: installed.assetsDirectory,
+  librariesDirectory: installed.librariesDirectory,
+  versionDirectory: installed.versionDirectory,
+  clientJarPath: installed.clientJarPath,
+  loader: installed.loader,
   accessToken: "access-token",
   clientToken: "client-token",
   profileId: "profile-id",
@@ -124,7 +147,8 @@ await sdk.launcher.launch(
   {
     version: prepared.metadata.id,
     gameDirectory: ".minecraft",
-    assetsDirectory: ".minecraft/assets",
+    assetsDirectory: prepared.assetsDirectory,
+    librariesDirectory: prepared.librariesDirectory,
     versionDirectory: prepared.versionDirectory,
     clientJarPath: prepared.clientJarPath,
   },

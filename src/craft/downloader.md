@@ -1,6 +1,6 @@
 # Downloader
 
-`Downloader` 是低层下载封装，适合需要直接下载清单或指定 URL 时使用。大多数启动流程应优先使用 `Installer` 或 `CraftSDK.playGame()`。
+`Downloader` 是低层下载封装，适合需要直接下载清单或指定 URL 时使用。大多数启动流程应优先使用 `Installer` 或 `CraftSDK.installGame()`。
 
 ## 构造函数
 
@@ -12,6 +12,7 @@ new Downloader(options?: DownloaderOptions)
 interface DownloaderOptions {
   apiSource?: "mojang" | "bmclapi";
   timeoutMs?: number;
+  process?: DownloadProcessCallback;
 }
 ```
 
@@ -26,7 +27,7 @@ getEndpoints(): ApiEndpoints
 ## download()
 
 ```ts
-download(url: string, targetPath: string): Promise<string>
+download(url: string, targetPath: string, options?: DownloaderDownloadOptions): Promise<string>
 ```
 
 下载任意 URL 到目标路径，返回 `targetPath`。
@@ -38,10 +39,24 @@ await sdk.downloader.download(
 );
 ```
 
+`options.process` 可跟踪单个文件下载进度：
+
+```ts
+await sdk.downloader.download(
+  "https://example.com/file.jar",
+  ".minecraft/downloads/file.jar",
+  {
+    process: ({ filePath, downloadedBytes, totalBytes, progress }) => {
+      console.log(filePath, downloadedBytes, totalBytes, progress);
+    },
+  }
+);
+```
+
 ## downloadVersionManifest()
 
 ```ts
-downloadVersionManifest(targetPath: string): Promise<string>
+downloadVersionManifest(targetPath: string, options?: DownloaderDownloadOptions): Promise<string>
 ```
 
 下载 Minecraft 版本清单到指定路径。
@@ -79,3 +94,17 @@ interface ApiEndpoints {
   javaRuntimeBase?: string;
 }
 ```
+
+## 下载进度回调
+
+```ts
+type DownloadProcessCallback = (progress: {
+  url: string;
+  filePath: string;
+  downloadedBytes: number;
+  totalBytes?: number;
+  progress?: number;
+}) => void;
+```
+
+`progress` 是 `0..1` 的比例。服务器未返回 `Content-Length` 时，`totalBytes` 和 `progress` 为空。

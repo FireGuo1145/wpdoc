@@ -27,6 +27,7 @@ interface LaunchOptions {
   modInstallTarget?: ModInstallTarget;
   authSession?: AuthSession;
   librariesDirectory?: string;
+  nativesDirectory?: string;
   clientJarPath?: string;
   gameDirectory: string;
   assetsDirectory: string;
@@ -36,6 +37,10 @@ interface LaunchOptions {
 ```
 
 ## 参数构建规则
+
+### 运行实例目录
+
+`gameDirectory` 会作为 Java 进程 `cwd`，并传给 Minecraft 的 `--gameDir`。这就是 saves、config、resourcepacks、screenshots、logs 和 `options.txt` 的隔离目录；Minecraft 没有独立的 `savesDirectory` 启动参数。
 
 ### Java 路径
 
@@ -72,6 +77,9 @@ libraries 支持：
 - Maven 坐标推导路径
 
 Windows 使用 `;` 拼接 classpath，其他平台使用 `:`。
+
+如果传入 `librariesDirectory`，classpath 会从该目录解析 libraries；否则使用 `${gameDirectory}/libraries`。
+如果传入 `nativesDirectory`，`${natives_directory}` 会使用该目录；否则使用 `${gameDirectory}/natives/<metadata.id>`。
 
 ### Game arguments
 

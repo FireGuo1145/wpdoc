@@ -5,6 +5,7 @@ Craft SDK 是一个 Node.js/TypeScript Minecraft 启动器 SDK，提供版本准
 ## 文档导航
 
 - [快速开始](./getting-started.md)
+- [自定义目录安装与启动示例](./custom-directories.md)
 - [CraftSDK 高级入口](./craft-sdk.md)
 - [AuthManager 认证会话](./auth-manager.md)
 - [Installer 安装器](./installer.md)
@@ -16,10 +17,16 @@ Craft SDK 是一个 Node.js/TypeScript Minecraft 启动器 SDK，提供版本准
 
 ## 模块入口
 
-包入口导出的公开 API：
+从 `src/index.ts` 导出的公开 API：
 
 ```ts
-export { CraftSDK, type CraftSdkOptions, type PlayGameOptions } from "./sdk.js";
+export {
+  CraftSDK,
+  type CraftSdkOptions,
+  type InstallGameOptions,
+  type LaunchGameOptions,
+  type PlayGameOptions,
+} from "./sdk.js";
 export { AuthManager } from "./auth.js";
 export { Downloader } from "./downloader.js";
 export { Installer } from "./installer.js";
@@ -41,7 +48,7 @@ export type { VersionMetadata } from "./models/version.js";
 
 ## 目录约定
 
-默认以 `gameDirectory` 作为 Minecraft 工作目录，例如 `.minecraft`：
+默认安装文件以 `gameDirectory` 作为基准目录，例如 `.minecraft`：
 
 ```text
 .minecraft/
@@ -52,4 +59,4 @@ export type { VersionMetadata } from "./models/version.js";
   versions/
 ```
 
-`CraftSDK.playGame()` 会把传入的 `gameDirectory` 转成绝对路径，避免 Java 进程 `cwd` 影响 classpath 和资源路径。
+启动时的 `gameDirectory` 是运行实例目录，会传给 Minecraft 的 `--gameDir`。如果需要版本隔离，应为每个版本或 profile 传独立的运行目录；saves、config、resourcepacks、screenshots、logs 和 `options.txt` 都会落在该目录下。

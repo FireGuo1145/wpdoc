@@ -76,6 +76,7 @@ export const zhSidebar = sidebar({
         "/craft/loaders",
         "/craft/models",
         "/craft/testing",
+        "/craft/custom-directories"
       ],
     },
   ],

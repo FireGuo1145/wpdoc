@@ -12,6 +12,7 @@ new Installer(options?: InstallerOptions)
 interface InstallerOptions {
   apiSource?: "mojang" | "bmclapi";
   timeoutMs?: number;
+  process?: DownloadProcessCallback;
 }
 ```
 
@@ -46,10 +47,17 @@ const prepared = await sdk.installer.prepareVersion("1.20.1", ".minecraft");
 ```ts
 interface PrepareVersionOptions {
   validate?: boolean;
+  process?: DownloadProcessCallback;
+  versionDirectory?: string;
+  assetsDirectory?: string;
+  librariesDirectory?: string;
 }
 ```
 
 `validate` 默认是 `true`。设置为 `false` 可以跳过最终全量校验，但下载后的单文件校验仍会在部分流程中执行。
+
+`versionDirectory` 可指定版本 metadata 和 client jar 的实际存储目录。未传时默认使用 `${baseDirectory}/versions/<versionId>`。
+`assetsDirectory` 和 `librariesDirectory` 可分别指定 assets 与 libraries 的实际存储目录，用于版本隔离。
 
 ### PreparedVersion
 
@@ -57,12 +65,16 @@ interface PrepareVersionOptions {
 interface PreparedVersion {
   metadata: VersionMetadata;
   versionDirectory: string;
+  assetsDirectory: string;
+  librariesDirectory: string;
   clientJarPath: string;
 }
 ```
 
 - `metadata`: 可传给 `GameLauncher.launch()` 的版本元数据。
 - `versionDirectory`: 当前版本目录。
+- `assetsDirectory`: 实际 assets 目录。
+- `librariesDirectory`: 实际 libraries 目录。
 - `clientJarPath`: 实际 client jar 路径。loader 版本通常复用原版 jar。
 
 ## installLoader()
@@ -76,7 +88,10 @@ installLoader(options: InstallLoaderOptions): Promise<PreparedVersion>
 ## downloadMinecraftVersionManifest()
 
 ```ts
-downloadMinecraftVersionManifest(targetDirectory: string): Promise<VersionManifest>
+downloadMinecraftVersionManifest(
+  targetDirectory: string,
+  options?: DownloadProcessOptions
+): Promise<VersionManifest>
 ```
 
 下载 `version_manifest_v2.json` 到 `targetDirectory`，并返回解析后的 JSON。
@@ -84,7 +99,11 @@ downloadMinecraftVersionManifest(targetDirectory: string): Promise<VersionManife
 ## downloadVersionMetadata()
 
 ```ts
-downloadVersionMetadata(url: string, targetDirectory: string): Promise<VersionMetadata>
+downloadVersionMetadata(
+  url: string,
+  targetDirectory: string,
+  options?: DownloadProcessOptions
+): Promise<VersionMetadata>
 ```
 
 从指定 URL 下载版本 metadata 到 `targetDirectory/version.json`。
@@ -92,15 +111,25 @@ downloadVersionMetadata(url: string, targetDirectory: string): Promise<VersionMe
 ## downloadVersionMetadataById()
 
 ```ts
-downloadVersionMetadataById(versionId: string, baseDirectory: string): Promise<VersionMetadata>
+downloadVersionMetadataById(
+  versionId: string,
+  baseDirectory: string,
+  options?: DownloadProcessOptions
+): Promise<VersionMetadata>
 ```
 
 从 manifest 查找版本，再下载对应 metadata。
 
+`options.versionDirectory` 可覆盖 metadata 写入目录，避免按 `versionId` 拼接目录。
+
 ## downloadClientJar()
 
 ```ts
-downloadClientJar(metadata: VersionMetadata, versionDirectory: string): Promise<string>
+downloadClientJar(
+  metadata: VersionMetadata,
+  versionDirectory: string,
+  options?: DownloadProcessOptions
+): Promise<string>
 ```
 
 下载 client jar 到 `${versionDirectory}/${metadata.id}.jar`，并按 metadata 中的 SHA1 校验。
@@ -108,10 +137,14 @@ downloadClientJar(metadata: VersionMetadata, versionDirectory: string): Promise<
 ## downloadLibraries()
 
 ```ts
-downloadLibraries(metadata: VersionMetadata, baseDirectory: string): Promise<string[]>
+downloadLibraries(
+  metadata: VersionMetadata,
+  baseDirectory: string,
+  options?: DownloadProcessOptions & LibraryDirectoryOptions
+): Promise<string[]>
 ```
 
-下载版本 libraries 到 `${baseDirectory}/libraries`。
+下载版本 libraries。未传 `options.librariesDirectory` 时使用 `${baseDirectory}/libraries`。
 
 支持两种 library 元数据：
 
@@ -123,15 +156,23 @@ downloadLibraries(metadata: VersionMetadata, baseDirectory: string): Promise<str
 ## downloadAssetIndex()
 
 ```ts
-downloadAssetIndex(metadata: VersionMetadata, baseDirectory: string): Promise<string>
+downloadAssetIndex(
+  metadata: VersionMetadata,
+  baseDirectory: string,
+  options?: DownloadProcessOptions & AssetDirectoryOptions
+): Promise<string>
 ```
 
-下载 assets index 到 `${baseDirectory}/assets/indexes/<id>.json`。
+下载 assets index。未传 `options.assetsDirectory` 时使用 `${baseDirectory}/assets/indexes/<id>.json`。
 
 ## downloadAssets()
 
 ```ts
-downloadAssets(metadata: VersionMetadata, baseDirectory: string): Promise<string[]>
+downloadAssets(
+  metadata: VersionMetadata,
+  baseDirectory: string,
+  options?: DownloadProcessOptions & AssetDirectoryOptions
+): Promise<string[]>
 ```
 
 根据 assets index 下载 objects 到：
@@ -208,3 +249,19 @@ await sdk.installer.installMods({
 ```
 
 默认安装到 `${gameDirectory}/mods`。可以用 `modsDirectory` 或 `installPath` 覆盖。
+
+`InstallOptions.process` 可跟踪 mod 下载进度。
+
+## 下载进度回调
+
+```ts
+type DownloadProcessCallback = (progress: {
+  url: string;
+  filePath: string;
+  downloadedBytes: number;
+  totalBytes?: number;
+  progress?: number;
+}) => void;
+```
+
+`process` 可放在 `Installer` 构造器作为默认回调，也可放在 `prepareVersion()`、`installLoader()`、各个下载方法或 `installMods()` 的 options 中覆盖。`progress` 是 `0..1` 的比例；服务器未返回 `Content-Length` 时为空。

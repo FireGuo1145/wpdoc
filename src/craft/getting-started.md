@@ -3,16 +3,13 @@
 ## 安装依赖
 
 ```bash
-# 安装 Craft SDK
-yarn add @hirarijs/craft-sdk
-# 或使用 npm
-npm install @hirarijs/craft-sdk
+yarn install
 ```
 
 ## 启动原版
 
 ```ts
-import { CraftSDK, API_SOURCE } from "@hirarijs/craft-sdk";
+import { CraftSDK, API_SOURCE } from "./src/index.js";
 
 const sdk = new CraftSDK({
   apiSource: API_SOURCE.MOJANG,
@@ -20,10 +17,21 @@ const sdk = new CraftSDK({
   timeoutMs: 120000,
 });
 
-const exitCode = await sdk.playGame({
+const installed = await sdk.installGame({
   version: "1.20.1",
   gameDirectory: ".minecraft",
+  runtimeDirectory: ".minecraft-instances/vanilla-1.20.1",
   loader: "vanilla",
+});
+
+const exitCode = await sdk.launchGame({
+  metadata: installed.metadata,
+  gameDirectory: installed.gameDirectory,
+  assetsDirectory: installed.assetsDirectory,
+  librariesDirectory: installed.librariesDirectory,
+  versionDirectory: installed.versionDirectory,
+  clientJarPath: installed.clientJarPath,
+  loader: installed.loader,
   accessToken: "access-token",
   clientToken: "client-token",
   profileId: "profile-id",
@@ -38,10 +46,21 @@ console.log(exitCode);
 ## 启动 Fabric
 
 ```ts
-await sdk.playGame({
+const installed = await sdk.installGame({
   version: "1.20.1",
   gameDirectory: ".minecraft",
+  runtimeDirectory: ".minecraft-instances/fabric-1.20.1",
   loader: "fabric",
+});
+
+await sdk.launchGame({
+  metadata: installed.metadata,
+  gameDirectory: installed.gameDirectory,
+  assetsDirectory: installed.assetsDirectory,
+  librariesDirectory: installed.librariesDirectory,
+  versionDirectory: installed.versionDirectory,
+  clientJarPath: installed.clientJarPath,
+  loader: installed.loader,
   accessToken: "access-token",
   clientToken: "client-token",
   profileId: "profile-id",
@@ -52,30 +71,24 @@ await sdk.playGame({
 指定加载器版本：
 
 ```ts
-await sdk.playGame({
+await sdk.installGame({
   version: "1.20.1",
   gameDirectory: ".minecraft",
+  runtimeDirectory: ".minecraft-instances/fabric-1.20.1",
   loader: "fabric",
   loaderVersion: "0.16.14",
-  accessToken: "access-token",
-  clientToken: "client-token",
-  profileId: "profile-id",
-  profileName: "Player",
 });
 ```
 
 ## 启动 Forge
 
 ```ts
-await sdk.playGame({
+await sdk.installGame({
   version: "1.20.1",
   gameDirectory: ".minecraft",
+  runtimeDirectory: ".minecraft-instances/forge-1.20.1",
   loader: "forge",
   loaderVersion: "47.4.0",
-  accessToken: "access-token",
-  clientToken: "client-token",
-  profileId: "profile-id",
-  profileName: "Player",
 });
 ```
 
@@ -84,10 +97,17 @@ await sdk.playGame({
 ## 分步安装和启动
 
 ```ts
-const prepared = await sdk.installer.prepareVersion("1.20.1", ".minecraft");
-
-await sdk.installer.installMods({
-  modPackages: [
+const installed = await sdk.installGame({
+  version: "1.20.1",
+  gameDirectory: ".minecraft",
+  runtimeDirectory: ".isolated/runtime/fabric",
+  loader: "fabric",
+  versionDirectory: ".isolated/versions/1.20.1",
+  loaderVersionDirectory: ".isolated/versions/fabric",
+  assetsDirectory: ".isolated/assets",
+  librariesDirectory: ".isolated/libraries",
+  modsDirectory: ".isolated/mods",
+  mods: [
     {
       id: "example",
       name: "Example Mod",
@@ -96,17 +116,15 @@ await sdk.installer.installMods({
       sourceUrl: "https://example.com/example.jar",
     },
   ],
-  installTarget: { gameDirectory: ".minecraft", loader: "fabric" },
 });
 
-await sdk.launcher.launch(
-  {
-    version: prepared.metadata.id,
-    gameDirectory: ".minecraft",
-    assetsDirectory: ".minecraft/assets",
-    versionDirectory: prepared.versionDirectory,
-    clientJarPath: prepared.clientJarPath,
-  },
-  prepared.metadata
-);
+await sdk.launchGame({
+  metadata: installed.metadata,
+  gameDirectory: installed.gameDirectory,
+  assetsDirectory: installed.assetsDirectory,
+  librariesDirectory: installed.librariesDirectory,
+  versionDirectory: installed.versionDirectory,
+  clientJarPath: installed.clientJarPath,
+  loader: installed.loader,
+});
 ```

@@ -1,6 +1,6 @@
 # AuthManager
 
-`AuthManager` 管理本地认证会话。当前实现接受外部传入 token，不负责完整 Microsoft/Mojang OAuth 登录流程。
+`AuthManager` 管理本地认证会话，并内置 Microsoft/Xbox/Minecraft Services 登录链路。
 
 ## 构造函数
 
@@ -11,26 +11,68 @@ new AuthManager(options?: AuthOptions)
 ```ts
 interface AuthOptions {
   sessionFile?: string;
+  microsoftAuth?: MicrosoftAuthOptions;
 }
 ```
 
 `sessionFile` 默认是 `craft-sdk-session.json`。
 
-## loginWithToken()
+## Microsoft 设备码登录
+
+适合桌面启动器和 CLI，不需要本地 HTTP 回调服务。
 
 ```ts
-loginWithToken(
-  accessToken: string,
-  clientToken: string,
-  profileId: string,
-  profileName: string
-): Promise<AuthSession>
+const session = await sdk.auth.loginWithMicrosoftDeviceCode({
+  clientId: "your-microsoft-app-client-id",
+  onVerification: ({ verificationUri, userCode, message }) => {
+    console.log(message);
+    console.log(`Open ${verificationUri} and enter ${userCode}`);
+  },
+});
 ```
 
-创建并保存本地 session。
+SDK 会自动完成：
+
+1. Microsoft OAuth device code。
+2. Xbox Live `user/authenticate`。
+3. XSTS `xsts/authorize`。
+4. Minecraft Services `login_with_xbox`。
+5. Minecraft profile 获取。
+6. 写入本地 `AuthSession`。
+
+## Microsoft 授权码登录
+
+适合有 redirect URI 的应用。
 
 ```ts
-const session = await sdk.auth.loginWithToken(
+const url = sdk.auth.getMicrosoftAuthorizationUrl({
+  clientId: "your-microsoft-app-client-id",
+  redirectUri: "http://localhost:3000/callback",
+  state: "csrf-token",
+});
+
+// 浏览器回调拿到 code 后：
+const session = await sdk.auth.loginWithMicrosoftAuthorizationCode(code, {
+  clientId: "your-microsoft-app-client-id",
+  redirectUri: "http://localhost:3000/callback",
+});
+```
+
+## 刷新 Microsoft 会话
+
+```ts
+const session = sdk.auth.loadSession();
+if (sdk.auth.isSessionExpired(session)) {
+  await sdk.auth.refreshMicrosoftSession(session);
+}
+```
+
+`loginWithMicrosoftDeviceCode()` 默认请求 `XboxLive.signin offline_access`，因此会话中会保存 `refreshToken`。
+
+## 外部 Token 登录
+
+```ts
+await sdk.auth.loginWithToken(
   "access-token",
   "client-token",
   "uuid",
@@ -38,29 +80,7 @@ const session = await sdk.auth.loginWithToken(
 );
 ```
 
-## saveSession()
-
-```ts
-saveSession(session: AuthSession): void
-```
-
-把 session 写入 `sessionFile`。
-
-## loadSession()
-
-```ts
-loadSession(): AuthSession | undefined
-```
-
-从 `sessionFile` 读取 session。文件不存在时返回 `undefined`。
-
-## createProfile()
-
-```ts
-createProfile(username: string, session?: AuthSession): UserProfile
-```
-
-创建一个简单的用户 profile 对象。
+这个方法保留给已经由外部系统完成认证的场景。
 
 ## AuthSession
 
@@ -68,6 +88,10 @@ createProfile(username: string, session?: AuthSession): UserProfile
 interface AuthSession {
   accessToken: string;
   clientToken: string;
+  provider?: "external" | "microsoft";
+  expiresAt?: number;
+  refreshToken?: string;
+  xuid?: string;
   selectedProfile?: { id: string; name: string };
   profile?: { id: string; name: string };
   userProperties?: Record<string, unknown>;
@@ -75,7 +99,3 @@ interface AuthSession {
   timestamp: number;
 }
 ```
-
-## 注意事项
-
-使用测试 token 可以启动离线流程，但 Minecraft 仍会尝试访问 Realms 等在线服务，日志里可能出现认证失败。这不等于本地启动失败。

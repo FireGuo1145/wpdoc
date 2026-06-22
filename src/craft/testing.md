@@ -1,8 +1,6 @@
 # 测试命令
 
-以下是 SDK 仓库自带的测试命令，用于检查本地启动流程。
-
-测试入口位于仓库内部 `src/test/`：
+测试入口在 `src/test/`：
 
 ```text
 src/test/
@@ -45,6 +43,7 @@ yarn test --help
 ```bash
 MC_VERSION=1.20.1
 MC_GAME_DIR=.minecraft
+MC_RUNTIME_DIR=.minecraft-instances/test
 MC_ACCESS_TOKEN=...
 MC_CLIENT_TOKEN=...
 MC_PROFILE_ID=...
